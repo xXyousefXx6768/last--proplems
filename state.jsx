@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Counter() {
+// في React، props هي اختصار لكلمة "Properties". props تُستخدم لتمرير البيانات من مكون أبوي إلى مكونات فرعية. هي غير قابلة للتغيير من قبل المكون الذي يستلمها، وبالتالي فهي تُستخدم لنقل المعلومات التي تحتاجها المكونات الفرعية.
 
-    const [count, setCount] = useState(0);
-
-   
-    const increment = () => {
-        setCount(prevCount => prevCount + 0.1);
-    };
+function ChildComponent(props) {
+    return <p>{props.text}</p>;
+}
+ 
+function ParentComponent() {
+    const message = "its parent";
 
     return (
         <div>
-            <p>العدد: {count.toFixed(1)}</p>
-            <button onClick={increment}>increase</button>
+            <h1> parent</h1>
+            <ChildComponent text={message} />
         </div>
     );
 }
 
-export default Counter;
+export default ParentComponent;
